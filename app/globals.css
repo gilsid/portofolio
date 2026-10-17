@@ -1,0 +1,1047 @@
+/* Gruvbox Material, palet medium + material (sainnhe/gruvbox-material).
+   Gelap adalah default. Terang tetap Gruvbox, bukan putih polos.
+
+   Dua penyesuaian di mode terang supaya teks lolos kontras WCAG AA (4.5:1):
+   - --mute memakai #665c54 (nada fg3 Gruvbox), bukan grey2 #7c6f64 (4.29:1).
+   - --accent-ink (oranye untuk teks kecil) memakai #af3a03 (faded orange
+     Gruvbox), bukan #c35e0a (3.76:1). #c35e0a tetap dipakai sebagai --accent
+     untuk teks besar dan elemen non-teks. */
+
+:root,
+[data-theme="dark"] {
+  --bg: #282828;
+  --bg-dim: #1b1b1b;
+  --surface: #32302f;
+  --surface-2: #3a3735;
+  --ink: #ddc7a1;
+  --fg0: #d4be98;
+  --mute: #a89984;
+  --line: #45403d;
+  --accent: #e78a4e;
+  --accent-ink: #e78a4e;
+  --green: #a9b665;
+  --aqua: #89b482;
+  --blue: #7daea3;
+  --purple: #d3869b;
+  --red: #ea6962;
+  --yellow: #d8a657;
+  --chip-active-bg: #ddc7a1;
+  --chip-active-fg: #282828;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #fbf1c7;
+  --bg-dim: #f2e5bc;
+  --surface: #f4e8be;
+  --surface-2: #f2e5bc;
+  --ink: #4f3829;
+  --fg0: #654735;
+  --mute: #665c54;
+  --line: #e5d5ad;
+  --accent: #c35e0a;
+  --accent-ink: #af3a03;
+  --green: #6c782e;
+  --aqua: #4c7a5d;
+  --blue: #45707a;
+  --purple: #945e80;
+  --red: #c14a4a;
+  --yellow: #b47109;
+  --chip-active-bg: #4f3829;
+  --chip-active-fg: #fbf1c7;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+p,
+h1,
+h2,
+h3,
+ul {
+  margin: 0;
+}
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -64px;
+  z-index: 10;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background: var(--chip-active-bg);
+  color: var(--chip-active-fg);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+
+.lab {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 500;
+}
+
+/* Header */
+
+.hd {
+  display: grid;
+  grid-template-areas:
+    "brand tools"
+    "nav nav";
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0 24px;
+  padding-block: 12px;
+}
+
+.hd .brand {
+  grid-area: brand;
+  justify-self: start;
+}
+
+.hd .nav {
+  grid-area: nav;
+}
+
+.tools {
+  grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 4px 14px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--accent-ink);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 22px;
+  align-items: center;
+}
+
+.nl {
+  font-size: 14px;
+  color: var(--mute);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Pilihan bahasa */
+
+.lang {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  text-decoration: none;
+}
+
+.lang-a:hover {
+  color: var(--ink);
+}
+
+.lang-on {
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+.nl:hover,
+.nl-on {
+  color: var(--ink);
+}
+
+.nl-on {
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+/* Hero */
+
+.hero {
+  padding-block: clamp(40px, 9vw, 112px) clamp(40px, 7vw, 80px);
+  display: grid;
+  gap: 24px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--mute);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  display: block;
+  flex-shrink: 0;
+}
+
+.h1 {
+  font-size: clamp(36px, 6.4vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  text-wrap: balance;
+  max-width: 20ch;
+}
+
+.lede {
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.55;
+  color: var(--mute);
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--mute);
+  padding-top: 8px;
+}
+
+.facts b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Daftar proyek */
+
+.sec {
+  padding-block: clamp(24px, 5vw, 56px);
+}
+
+.lh {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-bottom: 20px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  padding: 0 16px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--mute);
+  background: transparent;
+  text-decoration: none;
+}
+
+.chip:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.chip-on {
+  background: var(--chip-active-bg);
+  color: var(--chip-active-fg);
+  border-color: var(--chip-active-bg);
+}
+
+.chip-on:hover {
+  color: var(--chip-active-fg);
+  border-color: var(--chip-active-bg);
+  opacity: 0.9;
+}
+
+.hg {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 48px;
+}
+
+.list {
+  border-bottom: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  width: 100%;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+}
+
+.yr,
+.ty {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--mute);
+}
+
+.ty {
+  display: none;
+}
+
+.mid {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.nm {
+  display: block;
+  font-size: clamp(28px, 4.4vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sm {
+  display: block;
+  font-size: 15px;
+  color: var(--mute);
+  line-height: 1.5;
+  max-width: 56ch;
+}
+
+/* Efek hover hanya untuk perangkat yang punya kursor. Baris "terpilih"
+   (yang sedang dipratinjau) hanya ditandai di lebar ≥960px, tempat panel
+   pratinjau benar-benar tampil. */
+@media (hover: hover) {
+  .row:hover .nm {
+    color: var(--accent);
+    transform: translateX(8px);
+  }
+}
+
+.pv {
+  display: none;
+}
+
+.pvc {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.pvn {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.pvs {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--mute);
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid var(--chip-active-bg);
+  background: var(--chip-active-bg);
+  color: var(--chip-active-fg);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-ink);
+  color: var(--bg);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn-ghost:hover {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.go {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 500;
+  color: var(--accent-ink);
+  text-decoration: none;
+}
+
+.go:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Screenshot proyek: hanya dirender kalau file-nya ada di public/shots/ */
+
+.shot {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.shot-img {
+  object-fit: cover;
+}
+
+.shot-portrait .shot-img {
+  object-fit: contain;
+  padding: 12px;
+}
+
+/* Frame galeri ditumpuk dan di-crossfade (tidak remount), jadi tidak flicker
+   saat ganti gambar. Semua frame di-eager-load karena filenya kecil. */
+
+.shot-frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.shot-frame[data-on="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot-frame {
+    transition: none;
+  }
+}
+
+/* Navigasi galeri screenshot */
+
+.car-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.car-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.car-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.car-count {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--mute);
+  tabular-nums: auto;
+}
+
+.car-dots {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.car-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.car-dot[aria-current="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Proyek lain */
+
+.arch {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 40px 56px;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+
+.arch ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  margin-top: 12px;
+}
+
+.arch li {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  color: var(--mute);
+  line-height: 1.5;
+}
+
+.arch a {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
+
+.arch a:hover {
+  color: var(--accent-ink);
+}
+
+/* Halaman detail */
+
+.back {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--mute);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--ink);
+}
+
+.dt {
+  padding-block: clamp(16px, 3vw, 32px) clamp(32px, 6vw, 72px);
+  display: grid;
+  gap: 24px;
+  justify-items: start;
+}
+
+.dh {
+  max-width: none;
+}
+
+.big {
+  width: 100%;
+  margin-block: 8px 16px;
+}
+
+.dgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  width: 100%;
+  margin-top: clamp(16px, 3vw, 32px);
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  margin-top: 12px;
+}
+
+.ul li {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  line-height: 1.55;
+  font-size: 17px;
+  max-width: 64ch;
+}
+
+.ul.stk li {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13px;
+  padding: 9px 0;
+}
+
+.sec2 {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 40px;
+}
+
+.gh {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 500;
+  color: var(--accent-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.pn {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+
+.pnb {
+  display: grid;
+  gap: 6px;
+  padding: 8px 0;
+  text-decoration: none;
+}
+
+.pnb .nm {
+  font-size: clamp(22px, 3vw, 30px);
+}
+
+.pnb:hover .nm {
+  color: var(--accent);
+}
+
+/* Tentang */
+
+.ab {
+  display: grid;
+  gap: 0;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+
+.kv p {
+  line-height: 1.6;
+  max-width: 62ch;
+  font-size: 17px;
+}
+
+.kv p + p {
+  margin-top: 10px;
+}
+
+.sk {
+  display: grid;
+  align-items: baseline;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px 24px;
+  padding: 7px 0;
+  max-width: 62ch;
+}
+
+.sk span:first-child {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--mute);
+}
+
+.ev {
+  display: grid;
+  align-items: baseline;
+  gap: 4px;
+  padding: 5px 0;
+  max-width: 62ch;
+}
+
+.ev span:last-child {
+  font-family: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--mute);
+}
+
+.small {
+  font-size: 14px;
+  color: var(--mute);
+  line-height: 1.55;
+  max-width: 34ch;
+}
+
+/* Footer */
+
+.ft {
+  margin-top: 24px;
+}
+
+.ft-in {
+  border-top: 1px solid var(--line);
+  padding-block: 40px 56px;
+}
+
+.ft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 28px 40px;
+  width: 100%;
+}
+
+.ft-grid .lab {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ft-stack {
+  display: grid;
+  justify-items: start;
+}
+
+.ft-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-right: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+.ft-link:hover {
+  color: var(--accent-ink);
+}
+
+.ft-status {
+  min-height: 44px;
+}
+
+.ft-base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  width: 100%;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+/* Toggle tema: posisi thumb, ikon, dan label mengikuti html[data-theme]
+   lewat CSS, jadi tidak ada animasi "meluncur" saat halaman dimuat. */
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 4px;
+}
+
+.toggle-track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 52px;
+  height: 28px;
+  padding: 0 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  transition: background 0.25s ease, border-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.toggle:hover .toggle-track {
+  border-color: var(--accent);
+}
+
+.toggle-side {
+  color: var(--mute);
+  opacity: 0.55;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.toggle-side-moon {
+  opacity: 1;
+  color: var(--accent);
+}
+
+[data-theme="light"] .toggle-side-moon {
+  opacity: 0.55;
+  color: var(--mute);
+}
+
+[data-theme="light"] .toggle-side-sun {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--chip-active-bg);
+  color: var(--chip-active-fg);
+  transform: translate(24px, -50%);
+  transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1), background 0.25s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .toggle-thumb {
+  transform: translate(0, -50%);
+}
+
+.toggle-face {
+  grid-area: 1 / 1;
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.toggle-face-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.toggle-face-sun {
+  opacity: 0;
+  transform: rotate(120deg) scale(0.5);
+}
+
+[data-theme="light"] .toggle-face-moon {
+  opacity: 0;
+  transform: rotate(-120deg) scale(0.5);
+}
+
+[data-theme="light"] .toggle-face-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.toggle-label {
+  font-size: 14px;
+  color: var(--mute);
+  min-width: 48px;
+}
+
+.toggle:hover .toggle-label {
+  color: var(--ink);
+}
+
+.lbl-light {
+  display: none;
+}
+
+[data-theme="light"] .lbl-dark {
+  display: none;
+}
+
+[data-theme="light"] .lbl-light {
+  display: inline;
+}
+
+/* Responsif */
+
+@media (max-width: 559.98px) {
+  .toggle-label {
+    display: none;
+  }
+}
+
+@media (min-width: 720px) {
+  .hd {
+    grid-template-areas: "brand nav tools";
+    grid-template-columns: auto 1fr auto;
+    gap: 0 32px;
+  }
+  .hd .nav {
+    justify-self: end;
+  }
+}
+
+@media (min-width: 560px) {
+  .row {
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    gap: 4px 20px;
+    align-items: baseline;
+  }
+  .ty {
+    display: block;
+  }
+  .sk {
+    grid-template-columns: 170px minmax(0, 1fr);
+  }
+  .ev {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 24px;
+  }
+}
+
+@media (min-width: 760px) {
+  .kv {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (min-width: 860px) {
+  .dgrid {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 64px;
+  }
+}
+
+@media (min-width: 960px) {
+  .hg {
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 56px;
+  }
+  .pv {
+    display: block;
+    position: sticky;
+    top: 24px;
+    align-self: start;
+  }
+  .row-on .nm {
+    color: var(--accent);
+    transform: translateX(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .nm,
+  .toggle-track,
+  .toggle-thumb,
+  .toggle-face,
+  .toggle-side {
+    transition: none;
+  }
+  .row:hover .nm,
+  .row-on .nm {
+    transform: none;
+  }
+}
