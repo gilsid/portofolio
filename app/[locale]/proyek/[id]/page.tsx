@@ -62,6 +62,11 @@ export default async function ProjectDetailPage({
       </p>
       <h1 className="h1 dh">{p.name}</h1>
       <p className="lede">{p.lead}</p>
+      <p className="cta">
+        <a className="btn" href={p.repo} target="_blank" rel="noreferrer">
+          {d.repo}
+        </a>
+      </p>
 
       {p.shots.length > 0 && (
         <div className="big">
@@ -87,9 +92,6 @@ export default async function ProjectDetailPage({
               ))}
             </ul>
           </div>
-          <a className="gh" href={p.repo} target="_blank" rel="noreferrer">
-            {d.repo}
-          </a>
         </aside>
 
         <div>
