@@ -45,15 +45,6 @@ export default async function AboutPage({
         </div>
 
         <div className="kv">
-          <h2 className="lab">{a.ai.label}</h2>
-          <div>
-            {a.ai.paragraphs.map((t) => (
-              <p key={t}>{t}</p>
-            ))}
-          </div>
-        </div>
-
-        <div className="kv">
           <h2 className="lab">{a.education.label}</h2>
           <div>
             <p>{a.education.degree}</p>

@@ -67,7 +67,6 @@ export interface Dictionary {
     label: string;
     title: string;
     summary: { label: string; paragraphs: string[] };
-    ai: { label: string; paragraphs: string[] };
     education: {
       label: string;
       degree: string;
@@ -81,15 +80,15 @@ export interface Dictionary {
 
 const id: Dictionary = {
   meta: {
-    title: "Gilang Nur Akbar | Portofolio",
+    title: "Gilang Nur Akbar | Portofolio Web Developer",
     template: "%s | Gilang Nur Akbar",
-    description: `Portofolio Gilang Nur Akbar: aplikasi web dan mobile, dibangun bersama AI agent. Mahasiswa TI semester ${SEMESTER}, terbuka untuk magang.`,
+    description: `Portofolio Gilang Nur Akbar, mahasiswa TI semester ${SEMESTER}. Proyek web dan mobile dengan Next.js, SvelteKit, dan Flutter. Terbuka untuk magang.`,
     shortDescription:
-      "Aplikasi web dan mobile, dibangun bersama AI agent. Terbuka untuk magang.",
+      "Proyek web dan mobile dengan Next.js, SvelteKit, dan Flutter. Terbuka untuk magang.",
     ogLocale: "id_ID",
     og: {
       status: "Terbuka untuk magang · Kabupaten Bekasi",
-      headline: "Aplikasi web dan mobile, dibangun bersama AI agent.",
+      headline: "Saya membuat aplikasi web dan mobile.",
       stack: "Next.js · SvelteKit · Flutter",
     },
   },
@@ -107,9 +106,9 @@ const id: Dictionary = {
     },
     hero: {
       status: "Terbuka untuk magang · Kabupaten Bekasi",
-      title: "Aplikasi web dan mobile, dibangun bersama AI agent.",
+      title: "Saya membuat aplikasi web dan mobile.",
       contact: "Hubungi saya",
-      lede: `Saya Gilang, mahasiswa Teknologi Informasi semester ${SEMESTER}. Saya memakai Claude Code, Opencode, T3Code, dan Antigravity untuk mempercepat coding, dan mencari tim magang yang bekerja dengan cara yang sama.`,
+      lede: `Saya Gilang, mahasiswa Teknologi Informasi semester ${SEMESTER}. Saya mengerjakan proyek web dengan Next.js dan SvelteKit, serta aplikasi mobile dengan Flutter. Saat ini saya mencari magang, terutama di bidang frontend dan pengembangan web.`,
       facts: [
         {
           badge: "Juara 1",
@@ -160,21 +159,14 @@ const id: Dictionary = {
   about: {
     metaTitle: "Tentang",
     metaDescription:
-      "Tentang Gilang Nur Akbar: mahasiswa TI yang belajar dengan membangun produk, memakai AI agent, Next.js, SvelteKit, dan Flutter.",
+      "Tentang Gilang Nur Akbar: mahasiswa TI yang mengerjakan proyek web dengan Next.js dan SvelteKit, serta aplikasi mobile dengan Flutter.",
     label: "Tentang",
-    title: "Mahasiswa TI yang belajar dengan membangun produk.",
+    title: "Mahasiswa TI, fokus di pengembangan web.",
     summary: {
       label: "Ringkasan",
       paragraphs: [
-        "Fokus saya di pengembangan web modern dengan Next.js dan SvelteKit, ditambah aplikasi mobile dengan Flutter. Proyek-proyek saya semuanya punya kode publik di GitHub.",
-        "Saya mencari magang di perusahaan yang sudah menerapkan AI-assisted development dalam proses pengembangan produknya.",
-      ],
-    },
-    ai: {
-      label: "AI-assisted development",
-      paragraphs: [
-        "Saya mengembangkan aplikasi dengan bantuan AI agent: Claude Code, Opencode, T3Code, dan Antigravity.",
-        "Pendekatan ini terdokumentasi di repo publik. Matchcast dan LazyAuth memuat AGENTS.md sebagai panduan proyek untuk agent, Matchcast mencatat keputusan arsitektur di docs/adr, dan kodenya diuji dengan Vitest dan Playwright yang berjalan di GitHub Actions.",
+        "Saya mengerjakan pengembangan web dengan Next.js dan SvelteKit, dan aplikasi mobile dengan Flutter. Kode semua proyek saya bisa dilihat di GitHub.",
+        "Saya sedang mencari magang, terutama di bidang frontend dan pengembangan web.",
       ],
     },
     education: {
@@ -191,7 +183,6 @@ const id: Dictionary = {
         { label: "Basis data", value: "PostgreSQL, MySQL, Prisma, Drizzle" },
         { label: "Pengujian", value: "Vitest, Playwright" },
         { label: "Tools", value: "Git, GitHub, Emacs" },
-        { label: "AI agent", value: "Claude Code, Opencode, T3Code, Antigravity" },
       ],
     },
     achievements: {
@@ -214,15 +205,15 @@ const id: Dictionary = {
 
 const en: Dictionary = {
   meta: {
-    title: "Gilang Nur Akbar | Portfolio",
+    title: "Gilang Nur Akbar | Web Developer Portfolio",
     template: "%s | Gilang Nur Akbar",
-    description: `Portfolio of Gilang Nur Akbar: web and mobile apps built with AI agents. Semester ${SEMESTER} Information Technology student, open to internships.`,
+    description: `Portfolio of Gilang Nur Akbar, a semester ${SEMESTER} Information Technology student. Web and mobile projects built with Next.js, SvelteKit, and Flutter. Open to internships.`,
     shortDescription:
-      "Web and mobile apps built with AI agents. Open to internships.",
+      "Web and mobile projects built with Next.js, SvelteKit, and Flutter. Open to internships.",
     ogLocale: "en_US",
     og: {
       status: "Open to internships · Bekasi Regency, Indonesia",
-      headline: "Web and mobile apps, built with AI agents.",
+      headline: "I build web and mobile apps.",
       stack: "Next.js · SvelteKit · Flutter",
     },
   },
@@ -240,9 +231,9 @@ const en: Dictionary = {
     },
     hero: {
       status: "Open to internships · Bekasi Regency, Indonesia",
-      title: "Web and mobile apps, built with AI agents.",
+      title: "I build web and mobile apps.",
       contact: "Get in touch",
-      lede: `I'm Gilang, a semester ${SEMESTER} Information Technology student. I use Claude Code, Opencode, T3Code, and Antigravity to speed up development, and I'm looking for an internship on a team that works the same way.`,
+      lede: `I'm Gilang, a semester ${SEMESTER} Information Technology student. I work on web projects with Next.js and SvelteKit, and on mobile apps with Flutter. I'm currently looking for an internship, mainly in frontend and web development.`,
       facts: [
         {
           badge: "1st place",
@@ -293,21 +284,14 @@ const en: Dictionary = {
   about: {
     metaTitle: "About",
     metaDescription:
-      "About Gilang Nur Akbar: an IT student who learns by building products with AI agents, Next.js, SvelteKit, and Flutter.",
+      "About Gilang Nur Akbar: an IT student working on web projects with Next.js and SvelteKit, and mobile apps with Flutter.",
     label: "About",
-    title: "An IT student who learns by building products.",
+    title: "IT student, focused on web development.",
     summary: {
       label: "Summary",
       paragraphs: [
-        "I focus on modern web development with Next.js and SvelteKit, plus mobile apps with Flutter. All of my projects have public code on GitHub.",
-        "I'm looking for an internship at a company that already uses AI-assisted development in its product workflow.",
-      ],
-    },
-    ai: {
-      label: "AI-assisted development",
-      paragraphs: [
-        "I build applications with the help of AI agents: Claude Code, Opencode, T3Code, and Antigravity.",
-        "This approach is documented in my public repositories. Matchcast and LazyAuth include an AGENTS.md as project guidance for agents, Matchcast records its architecture decisions in docs/adr, and its code is tested with Vitest and Playwright running on GitHub Actions.",
+        "I work on web development with Next.js and SvelteKit, and on mobile apps with Flutter. The code for all my projects is on GitHub.",
+        "I'm looking for an internship, mainly in frontend and web development.",
       ],
     },
     education: {
@@ -324,7 +308,6 @@ const en: Dictionary = {
         { label: "Databases", value: "PostgreSQL, MySQL, Prisma, Drizzle" },
         { label: "Testing", value: "Vitest, Playwright" },
         { label: "Tools", value: "Git, GitHub, Emacs" },
-        { label: "AI agents", value: "Claude Code, Opencode, T3Code, Antigravity" },
       ],
     },
     achievements: {

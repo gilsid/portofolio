@@ -158,12 +158,12 @@ const TEXT: Record<Locale, Record<string, ProjectText>> = {
         "Fullstack di SvelteKit, dengan route API sendiri di src/routes/api.",
         "Auth memakai JWT di cookie httpOnly, password di-hash dengan bcryptjs.",
         "Diuji dengan Vitest dan Playwright, dijalankan di GitHub Actions.",
-        "Keputusan arsitektur dicatat di docs/adr, aturan kerja untuk agent di AGENTS.md.",
+        "Keputusan arsitektur dicatat di docs/adr.",
       ],
     },
     novira: {
       summary: "Dashboard kebersihan kota dari 290 CCTV publik Bandung.",
-      lead: "Dashboard pemantauan kebersihan kota yang mengubah jaringan CCTV menjadi sensor sampah. Sistem menilai tiap insiden, menjalankan SLA, dan meranking kelurahan.",
+      lead: "Dashboard pemantauan kebersihan kota yang memakai jaringan CCTV untuk mendeteksi sampah. Sistem menilai tiap insiden, melacak SLA, dan memberi peringkat kelurahan.",
       features: [
         "Pemantauan langsung 290 kamera publik Kota Bandung, dengan pemutaran HLS dan MP4.",
         "Skor prioritas 0 sampai 100 dari jenis sampah, durasi, sensitivitas lokasi, dan kekambuhan.",
@@ -179,7 +179,7 @@ const TEXT: Record<Locale, Record<string, ProjectText>> = {
     },
     "undangan-digital": {
       summary: "Undangan pernikahan online dengan dashboard per pasangan.",
-      lead: "Website untuk membuat dan mengelola undangan pernikahan digital. Setiap pasangan punya dashboard sendiri, dan tamu menerima tautan personal lewat WhatsApp.",
+      lead: "Situs web untuk membuat dan mengelola undangan pernikahan digital. Setiap pasangan punya dashboard sendiri, dan tamu menerima tautan personal lewat WhatsApp.",
       features: [
         "Empat tema undangan: Elegant, Rustic, Minimalist, dan Foil Blueprint.",
         "Daftar tamu dengan impor CSV sampai 1.000 baris dan tautan personal per tamu.",
@@ -194,7 +194,7 @@ const TEXT: Record<Locale, Record<string, ProjectText>> = {
     },
     lazyauth: {
       summary: "Authenticator TOTP offline yang berjalan di terminal.",
-      lead: "Authenticator TOTP di terminal yang tidak membuat koneksi jaringan sama sekali. Kodenya mengikuti RFC 6238, jadi cocok dipakai untuk GitHub, Google, dan AWS.",
+      lead: "Authenticator TOTP di terminal yang tidak membuat koneksi jaringan sama sekali. Kode yang dihasilkan mengikuti RFC 6238, jadi bisa dipakai untuk GitHub, Google, dan AWS.",
       features: [
         "Kode TOTP dengan hitung mundur langsung di antarmuka terminal bertema Gruvbox.",
         "Navigasi keyboard ala vim (hjkl).",
@@ -209,7 +209,7 @@ const TEXT: Record<Locale, Record<string, ProjectText>> = {
     },
     plantcare: {
       summary: "Pengingat jadwal siram dan pupuk, tersimpan di perangkat.",
-      lead: "Aplikasi perawatan tanaman supaya jadwalnya tidak terlewat. Setiap tanaman dicatat lengkap dengan foto, jenis, lokasi, dan catatan.",
+      lead: "Aplikasi perawatan tanaman yang mengingatkan jadwal siram dan pupuk. Setiap tanaman dicatat beserta foto, jenis, lokasi, dan catatannya.",
       features: [
         "Jadwal perawatan yang bisa diatur sendiri, termasuk menyiram dan memberi pupuk.",
         "Skor kesehatan otomatis dengan indikator tren, dan notifikasi untuk tugas yang terlambat.",
@@ -250,12 +250,12 @@ const TEXT: Record<Locale, Record<string, ProjectText>> = {
         "Full-stack in SvelteKit, with its own API routes in src/routes/api.",
         "Auth uses a JWT in an httpOnly cookie, and passwords are hashed with bcryptjs.",
         "Tested with Vitest and Playwright, running on GitHub Actions.",
-        "Architecture decisions are recorded in docs/adr, and working rules for agents in AGENTS.md.",
+        "Architecture decisions are recorded in docs/adr.",
       ],
     },
     novira: {
       summary: "A city cleanliness dashboard built on 290 public CCTV cameras in Bandung.",
-      lead: "A city cleanliness monitoring dashboard that turns a CCTV network into a litter sensor. The system scores each incident, enforces SLAs, and ranks urban villages (kelurahan).",
+      lead: "A city cleanliness dashboard that uses a CCTV network to detect litter. It scores each incident, tracks SLAs, and ranks kelurahan (urban villages).",
       features: [
         "Live monitoring of 290 public cameras in Bandung, with HLS and MP4 playback.",
         "A 0 to 100 priority score based on waste type, duration, location sensitivity, and recurrence.",
@@ -301,7 +301,7 @@ const TEXT: Record<Locale, Record<string, ProjectText>> = {
     },
     plantcare: {
       summary: "Watering and fertilizing reminders, stored on the device.",
-      lead: "A plant care app so no schedule gets missed. Each plant is recorded with its photo, type, location, and notes.",
+      lead: "A plant care app that reminds you when to water and fertilize. Each plant is saved with its photo, type, location, and notes.",
       features: [
         "Customizable care schedules, including watering and fertilizing.",
         "An automatic health score with a trend indicator, and notifications for overdue tasks.",
